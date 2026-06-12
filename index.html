@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chad Lickfelt | International Relations Research &amp; Writing</title>
+<meta name="description" content="Chad Lickfelt is an International Relations student researching humanitarian policy, disability-inclusive humanitarian action, Sudan and African politics, and democratic erosion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FCFCFA;
+    --ink: #21262E;
+    --slate: #5A6270;
+    --accent: #2D4E6E;
+    --rule: #E3E2DC;
+    --measure: 62ch;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Spectral', Georgia, serif;
+    font-weight: 400;
+    font-size: 1.075rem;
+    line-height: 1.72;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 5.5rem 0 3.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 1.4rem;
+  }
+
+  h1 {
+    font-weight: 500;
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.1rem;
+  }
+
+  .lede {
+    max-width: var(--measure);
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  nav {
+    margin-top: 2.4rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  nav a {
+    color: var(--slate);
+    text-decoration: none;
+    margin-right: 1.8rem;
+  }
+  nav a:hover { color: var(--accent); text-decoration: underline; }
+
+  /* ---------- Sections with marginal labels ---------- */
+  section {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2.5rem;
+    padding: 3.2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  .marginal {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+    padding-top: 0.45em;
+  }
+
+  .body-col { max-width: var(--measure); }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.005em;
+  }
+
+  .body-col p + p { margin-top: 1rem; }
+
+  /* ---------- Work entries ---------- */
+  .entry { margin-bottom: 2.2rem; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry h3 {
+    font-weight: 600;
+    font-size: 1.08rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .entry .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--slate);
+    margin-bottom: 0.55rem;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 2.6rem 0 3.4rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--slate);
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 640px) {
+    header { padding: 3.5rem 0 2.5rem; }
+    section {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      padding: 2.4rem 0;
+    }
+    .marginal { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="kicker">Research and writing</p>
+    <h1>Chad Lickfelt</h1>
+    <p class="lede">International Relations student at Florida International University, writing on humanitarian policy, disability-inclusive humanitarian action, Sudanese and African politics, and democratic erosion.</p>
+    <nav aria-label="Site sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <div class="marginal">About</div>
+    <div class="body-col">
+      <p>I am an undergraduate studying International Relations at Florida International University. My work sits at the intersection of humanitarian policy, political analysis, and disability inclusion: how states fail their people, how informal systems fill the gaps, how the institutions meant to respond actually behave, and what happens to the people with disabilities who are most affected when they fail.</p>
+      <p>That last question is not an afterthought. People with disabilities face some of the highest risks in any crisis and are often the last consideration in its response. Making humanitarian action genuinely inclusive is a central thread of my work, reflected in my current certification track in disability-inclusive disaster risk reduction alongside core humanitarian standards.</p>
+      <p>I am also focused on Sudan, where informal economic networks sustained communities through a decade of crisis, and on democratic erosion, which I track through a structured indicator framework of my own design. I aim to work in humanitarian policy with international organizations.</p>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="marginal">Research</div>
+    <div class="body-col">
+      <div class="entry">
+        <h3>Informal Economic Systems in Sudan, 1983&ndash;1993</h3>
+        <p class="meta">Independent research paper</p>
+        <p>An examination of how hawala remittance networks, sanduk savings associations, and suq markets functioned as parallel economic infrastructure during a decade of war, famine, and state contraction. The paper argues that these informal systems were not stopgaps but durable institutions, with direct implications for how humanitarian actors should engage local economies in protracted crises. Full text available on request.</p>
+      </div>
+      <div class="entry">
+        <h3>Democratic Erosion Observatory</h3>
+        <p class="meta">Ongoing project, est. 2026</p>
+        <p>A quarterly monitoring project tracking democratic erosion across seven countries using five indicators scored on structured 0&ndash;4 rubrics. The framework covers areas such as electoral integrity, institutional independence, and information environment, with each score supported by written evidence justifications. Methodology notes available on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="marginal">Writing</div>
+    <div class="body-col">
+      <p>I publish analytical essays on <a href="https://chadlickfelt.substack.com">Substack</a>, where I write about democratic backsliding, humanitarian policy, and the politics of state institutions. Recent pieces have examined the rescission of ICE detainee death reporting requirements, impunity for the crime of aggression, and the dismantling of American foreign assistance infrastructure.</p>
+      <p>The throughline in my writing is a simple conviction: that institutional details most people find boring are where political power actually lives, and that someone should be paying attention to them.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="marginal">Contact</div>
+    <div class="body-col">
+      <p>The best way to reach me is by email at <a href="mailto:click002@fiu.edu">click002@fiu.edu</a>. I am genuinely eager to discuss my work on Sudan, or about people with disabilities in crisis situations, and I am always keen to hear from people working in the humanitarian sector.</p>
+      <p>You can also find me on <a href="https://www.linkedin.com/in/chadlickfelt">LinkedIn</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Chad Lickfelt &middot; Last updated June 2026
+  </footer>
+
+</div>
+</body>
+</html>
