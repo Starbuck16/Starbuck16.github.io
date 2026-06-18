@@ -4,228 +4,696 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chad Lickfelt | International Relations Research &amp; Writing</title>
-<meta name="description" content="Chad Lickfelt is an International Relations student researching humanitarian policy, disability-inclusive humanitarian action, Sudan and African politics, and democratic erosion.">
+<meta name="description" content="Chad Lickfelt is an International Relations student at FIU researching humanitarian policy, disability-inclusive humanitarian action, Sudan, African politics, and democratic erosion.">
+<meta property="og:title" content="Chad Lickfelt | International Relations Research &amp; Writing">
+<meta property="og:description" content="Undergraduate IR student at FIU writing on humanitarian policy, Sudan, African politics, and democratic erosion.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --paper: #FCFCFA;
-    --ink: #21262E;
-    --slate: #5A6270;
-    --accent: #2D4E6E;
-    --rule: #E3E2DC;
-    --measure: 62ch;
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Surfaces */
+  --color-bg:             #F9F7F4;
+  --color-surface:        #F5F2ED;
+  --color-surface-2:      #EDEAE4;
+  --color-divider:        #DDD9D2;
+  --color-border:         #C9C4BC;
+  /* Text */
+  --color-text:           #1C1A17;
+  --color-text-muted:     #6B6660;
+  --color-text-faint:     #A8A29A;
+  /* Primary Accent — deep slate blue */
+  --color-primary:        #2B4B6F;
+  --color-primary-hover:  #1D3552;
+  --color-primary-light:  #E8EDF3;
+  /* Gold accent */
+  --color-gold:           #8B6914;
+  --color-gold-light:     #F5EDD8;
+  /* Type scale */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.8rem,   0.75rem + 0.3vw,  0.9375rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw,  1.1rem);
+  --text-lg:   clamp(1.15rem,  1rem    + 0.65vw,  1.45rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw,  2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,   3.5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,      7rem);
+  /* Spacing */
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+  --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+  --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+  --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+  /* Radius */
+  --radius-sm: 0.25rem; --radius-md: 0.5rem; --radius-lg: 0.75rem;
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Fonts */
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(28, 26, 23, 0.06);
+  --shadow-md: 0 4px 16px rgba(28, 26, 23, 0.08);
+  --shadow-lg: 0 12px 40px rgba(28, 26, 23, 0.12);
+}
+
+[data-theme="dark"] {
+  --color-bg:           #141210;
+  --color-surface:      #1A1815;
+  --color-surface-2:    #201E1B;
+  --color-divider:      #2C2A26;
+  --color-border:       #3A3830;
+  --color-text:         #E8E4DE;
+  --color-text-muted:   #8C8880;
+  --color-text-faint:   #5A5750;
+  --color-primary:      #7AA0C8;
+  --color-primary-hover:#9BBAD8;
+  --color-primary-light:#1E2A38;
+  --color-gold:         #C49A35;
+  --color-gold-light:   #2A2415;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+/* ===== BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-16);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hanging-punctuation: first last;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.65;
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+ul[role="list"] { list-style: none; }
+input, button, textarea, select { font: inherit; color: inherit; }
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li { text-wrap: pretty; max-width: 72ch; }
+
+::selection { background: rgba(43, 75, 111, 0.18); color: var(--color-text); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+
+a {
+  color: var(--color-primary);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 180ms var(--ease-out), text-decoration-color 180ms var(--ease-out);
+}
+a:hover { color: var(--color-primary-hover); text-decoration-thickness: 2px; }
+
+button { cursor: pointer; background: none; border: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===== LAYOUT ===== */
+.container { max-width: 900px; margin-inline: auto; padding-inline: var(--space-6); }
 
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+/* ===== SKIP LINK ===== */
+.skip-link {
+  position: absolute; top: var(--space-2); left: var(--space-2);
+  background: var(--color-primary); color: #fff;
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-md);
+  font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500;
+  text-decoration: none; z-index: 1000;
+  transform: translateY(-200%);
+  transition: transform 0.2s var(--ease-out);
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* ===== SITE HEADER ===== */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in oklch, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid color-mix(in oklch, var(--color-border) 60%, transparent);
+  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+.site-header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-block: var(--space-3);
+  max-width: 900px; margin-inline: auto; padding-inline: var(--space-6);
+}
+.site-logo {
+  display: flex; align-items: center; gap: var(--space-2);
+  text-decoration: none; color: var(--color-text);
+}
+.site-logo svg { color: var(--color-primary); flex-shrink: 0; }
+.logo-name {
+  font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500;
+  letter-spacing: -0.01em; color: var(--color-text); line-height: 1;
+}
+.logo-title {
+  font-family: var(--font-body); font-size: var(--text-xs);
+  color: var(--color-text-muted); letter-spacing: 0.06em; text-transform: uppercase;
+  font-weight: 500;
+}
+
+.header-right { display: flex; align-items: center; gap: var(--space-6); }
+
+.nav-links { display: flex; gap: var(--space-5); list-style: none; }
+.nav-links a {
+  font-family: var(--font-body); font-size: var(--text-xs);
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--color-text-muted); text-decoration: none;
+  transition: color 180ms var(--ease-out);
+}
+.nav-links a:hover { color: var(--color-primary); }
+
+.theme-toggle {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-md); color: var(--color-text-muted);
+  transition: color 180ms var(--ease-out), background 180ms var(--ease-out);
+  flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--color-text); background: var(--color-surface-2); }
+
+/* ===== HERO ===== */
+.hero {
+  padding-block: clamp(var(--space-20), 10vw, var(--space-24)) clamp(var(--space-16), 8vw, var(--space-20));
+  border-bottom: 1px solid var(--color-divider);
+  position: relative; overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-body); font-size: var(--text-xs); font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gold);
+  margin-bottom: var(--space-6);
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 24px; height: 1px; background: var(--color-gold);
+}
+
+.hero-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-hero); font-weight: 400; line-height: 1.0;
+  letter-spacing: -0.02em; color: var(--color-text);
+  margin-bottom: var(--space-6);
+  max-width: 14ch;
+}
+
+.hero-lede {
+  font-size: var(--text-base); font-weight: 300; line-height: 1.7;
+  color: var(--color-text-muted); max-width: 56ch;
+  margin-bottom: var(--space-8);
+}
+
+.hero-cta-row { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-primary); color: #fff;
+  font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.02em;
+  text-decoration: none; border-radius: var(--radius-md);
+  transition: background 180ms var(--ease-out), transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background: var(--color-primary-hover); color: #fff;
+  transform: translateY(-1px); box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-muted); font-size: var(--text-sm); font-weight: 500;
+  text-decoration: none; border-radius: var(--radius-md);
+  border: 1px solid color-mix(in oklch, var(--color-border) 80%, transparent);
+  transition: color 180ms var(--ease-out), border-color 180ms var(--ease-out), background 180ms var(--ease-out);
+}
+.btn-ghost:hover {
+  color: var(--color-text); border-color: var(--color-border);
+  background: var(--color-surface); text-decoration: none;
+}
+
+.hero-meta-block {
+  margin-top: var(--space-12);
+  display: flex; align-items: flex-start; gap: var(--space-4);
+}
+.hero-accent-line { width: 2px; min-height: 60px; background: var(--color-primary); flex-shrink: 0; opacity: 0.3; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); padding-top: var(--space-1); }
+.tag {
+  font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.05em;
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-surface); border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm); color: var(--color-text-muted);
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-section {
+  padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+  border-bottom: 1px solid var(--color-divider);
+}
+.content-section:last-of-type { border-bottom: none; }
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.section-label {
+  font-family: var(--font-body); font-size: var(--text-xs); font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-faint);
+  padding-top: 0.35em; position: sticky; top: calc(56px + var(--space-6));
+}
+.section-label-accent {
+  display: block; width: 16px; height: 2px; background: var(--color-primary);
+  margin-bottom: var(--space-2); opacity: 0.5;
+}
+
+.section-body { min-width: 0; }
+
+.section-heading {
+  font-family: var(--font-display); font-size: var(--text-xl);
+  font-weight: 500; letter-spacing: -0.01em; line-height: 1.2;
+  color: var(--color-text); margin-bottom: var(--space-5);
+}
+
+.body-text { font-size: var(--text-base); line-height: 1.72; color: var(--color-text); }
+.body-text + .body-text { margin-top: var(--space-4); }
+
+/* ===== RESEARCH ===== */
+.research-grid { display: flex; flex-direction: column; gap: var(--space-8); }
+
+.research-card {
+  padding: var(--space-6); background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-lg);
+  transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+}
+.research-card:hover { border-color: var(--color-border); box-shadow: var(--shadow-md); }
+
+.research-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-2); }
+
+.research-title {
+  font-family: var(--font-display); font-size: var(--text-lg);
+  font-weight: 500; line-height: 1.25; color: var(--color-text);
+  letter-spacing: -0.005em;
+}
+.research-status {
+  flex-shrink: 0; font-size: var(--text-xs); font-weight: 500;
+  padding: var(--space-1) var(--space-3); border-radius: var(--radius-sm);
+  background: var(--color-primary-light); color: var(--color-primary);
+  letter-spacing: 0.04em;
+}
+.research-meta {
+  font-family: var(--font-body); font-size: var(--text-xs); color: var(--color-text-faint);
+  letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; margin-bottom: var(--space-3);
+}
+.research-body { font-size: var(--text-sm); line-height: 1.68; color: var(--color-text-muted); }
+.research-request {
+  display: inline-flex; align-items: center; gap: var(--space-1);
+  margin-top: var(--space-3); font-size: var(--text-xs); font-weight: 500;
+  color: var(--color-primary); text-decoration: none; letter-spacing: 0.03em;
+}
+.research-request:hover { color: var(--color-primary-hover); text-decoration: underline; }
+
+/* ===== PULL QUOTE ===== */
+.pull-quote {
+  margin: var(--space-8) 0;
+  padding: var(--space-6) var(--space-8);
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-gold-light);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.pull-quote blockquote {
+  font-family: var(--font-display); font-size: var(--text-lg); font-style: italic;
+  font-weight: 300; line-height: 1.55; color: var(--color-text);
+  max-width: 56ch;
+}
+
+/* ===== WRITING ===== */
+.writing-substack-card {
+  display: flex; align-items: flex-start; gap: var(--space-5);
+  padding: var(--space-6); border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg); background: var(--color-surface);
+  margin-bottom: var(--space-6); text-decoration: none; color: var(--color-text);
+  transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+}
+.writing-substack-card:hover { border-color: var(--color-border); box-shadow: var(--shadow-md); }
+
+.substack-icon {
+  width: 44px; height: 44px; border-radius: var(--radius-md); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-primary-light);
+}
+.substack-icon svg { color: var(--color-primary); }
+
+.substack-content { min-width: 0; flex: 1; }
+.substack-label {
+  font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--color-text-faint); margin-bottom: var(--space-1);
+}
+.substack-title {
+  font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500;
+  color: var(--color-text); margin-bottom: var(--space-2);
+}
+.substack-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+
+.topics-row { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.topic-pill {
+  font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.03em;
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-surface-2); border: 1px solid var(--color-divider);
+  border-radius: var(--radius-sm); color: var(--color-text-muted);
+}
+
+/* ===== CONTACT ===== */
+.contact-links { display: flex; flex-direction: column; gap: var(--space-3); }
+.contact-link-row {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+  background: var(--color-surface); text-decoration: none; color: var(--color-text);
+  transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out);
+}
+.contact-link-row:hover { border-color: var(--color-primary); box-shadow: var(--shadow-sm); background: var(--color-primary-light); text-decoration: none; }
+.contact-link-icon {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  background: var(--color-bg); border-radius: var(--radius-sm); flex-shrink: 0;
+  border: 1px solid var(--color-divider); color: var(--color-text-muted);
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out);
+}
+.contact-link-row:hover .contact-link-icon { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+.contact-link-text { flex: 1; min-width: 0; }
+.contact-link-label { font-size: var(--text-xs); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; color: var(--color-text-faint); }
+.contact-link-value { font-size: var(--text-sm); font-weight: 500; color: var(--color-text); }
+.contact-link-arrow { color: var(--color-text-faint); transition: color 180ms var(--ease-out), transform 180ms var(--ease-out); }
+.contact-link-row:hover .contact-link-arrow { color: var(--color-primary); transform: translateX(2px); }
+
+/* ===== FOOTER ===== */
+.site-footer { border-top: 1px solid var(--color-divider); padding-block: var(--space-10); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); }
+.footer-copy { font-size: var(--text-xs); color: var(--color-text-faint); letter-spacing: 0.04em; }
+.footer-links { display: flex; gap: var(--space-6); }
+.footer-links a { font-size: var(--text-xs); color: var(--color-text-faint); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; transition: color 180ms var(--ease-out); }
+.footer-links a:hover { color: var(--color-primary); }
+
+/* ===== SCROLL REVEALS ===== */
+.fade-in { opacity: 1; }
+@supports (animation-timeline: scroll()) {
+  .fade-in {
+    opacity: 0;
+    animation: reveal-fade linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
   }
+  @keyframes reveal-fade { to { opacity: 1; } }
+}
 
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Spectral', Georgia, serif;
-    font-weight: 400;
-    font-size: 1.075rem;
-    line-height: 1.72;
-  }
-
-  a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-  }
-  a:hover { text-decoration-thickness: 2px; }
-  a:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 1px;
-  }
-
-  .page {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  /* ---------- Header ---------- */
-  header {
-    padding: 5.5rem 0 3.5rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .kicker {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--slate);
-    margin-bottom: 1.4rem;
-  }
-
-  h1 {
-    font-weight: 500;
-    font-size: clamp(2.1rem, 5vw, 3rem);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
-    margin-bottom: 1.1rem;
-  }
-
-  .lede {
-    max-width: var(--measure);
-    font-size: 1.15rem;
-    font-weight: 300;
-    color: var(--ink);
-  }
-
-  nav {
-    margin-top: 2.4rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  nav a {
-    color: var(--slate);
-    text-decoration: none;
-    margin-right: 1.8rem;
-  }
-  nav a:hover { color: var(--accent); text-decoration: underline; }
-
-  /* ---------- Sections with marginal labels ---------- */
-  section {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 2.5rem;
-    padding: 3.2rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  section:last-of-type { border-bottom: none; }
-
-  .marginal {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--slate);
-    padding-top: 0.45em;
-  }
-
-  .body-col { max-width: var(--measure); }
-
-  h2 {
-    font-weight: 600;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    letter-spacing: -0.005em;
-  }
-
-  .body-col p + p { margin-top: 1rem; }
-
-  /* ---------- Work entries ---------- */
-  .entry { margin-bottom: 2.2rem; }
-  .entry:last-child { margin-bottom: 0; }
-
-  .entry h3 {
-    font-weight: 600;
-    font-size: 1.08rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .entry .meta {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: var(--slate);
-    margin-bottom: 0.55rem;
-  }
-
-  /* ---------- Footer ---------- */
-  footer {
-    padding: 2.6rem 0 3.4rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: var(--slate);
-  }
-
-  /* ---------- Mobile ---------- */
-  @media (max-width: 640px) {
-    header { padding: 3.5rem 0 2.5rem; }
-    section {
-      grid-template-columns: 1fr;
-      gap: 0.9rem;
-      padding: 2.4rem 0;
-    }
-    .marginal { padding-top: 0; }
-  }
+/* ===== MOBILE ===== */
+@media (max-width: 640px) {
+  .section-grid { grid-template-columns: 1fr; gap: var(--space-4); }
+  .section-label { position: static; }
+  .nav-links { display: none; }
+  .hero-heading { max-width: none; }
+  .research-card-top { flex-direction: column; gap: var(--space-2); }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .pull-quote { padding: var(--space-5); }
+}
+@media (max-width: 768px) {
+  .hero-meta-block { margin-top: var(--space-8); }
+}
 </style>
 </head>
 <body>
-<div class="page">
+<a href="#main" class="skip-link">Skip to main content</a>
 
-  <header>
-    <p class="kicker">Research and writing</p>
-    <h1>Chad Lickfelt</h1>
-    <p class="lede">International Relations student at Florida International University, writing on humanitarian policy, disability-inclusive humanitarian action, Sudanese and African politics, and democratic erosion.</p>
-    <nav aria-label="Site sections">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section id="about">
-    <div class="marginal">About</div>
-    <div class="body-col">
-      <p>I am an undergraduate studying International Relations at Florida International University. My work sits at the intersection of humanitarian policy, political analysis, and disability inclusion: how states fail their people, how informal systems fill the gaps, how the institutions meant to respond actually behave, and what happens to the people with disabilities who are most affected when they fail.</p>
-      <p>That last question is not an afterthought. People with disabilities face some of the highest risks in any crisis and are often the last consideration in its response. Making humanitarian action genuinely inclusive is a central thread of my work, reflected in my current certification track in disability-inclusive disaster risk reduction alongside core humanitarian standards.</p>
-      <p>I am also focused on Sudan, where informal economic networks sustained communities through a decade of crisis, and on democratic erosion, which I track through a structured indicator framework of my own design. I aim to work in humanitarian policy with international organizations.</p>
-    </div>
-  </section>
-
-  <section id="research">
-    <div class="marginal">Research</div>
-    <div class="body-col">
-      <div class="entry">
-        <h3>Informal Economic Systems in Sudan, 1983&ndash;1993</h3>
-        <p class="meta">Independent research paper</p>
-        <p>An examination of how hawala remittance networks, sanduk savings associations, and suq markets functioned as parallel economic infrastructure during a decade of war, famine, and state contraction. The paper argues that these informal systems were not stopgaps but durable institutions, with direct implications for how humanitarian actors should engage local economies in protracted crises. Full text available on request.</p>
+<header class="site-header" role="banner">
+  <div class="site-header-inner">
+    <a href="#" class="site-logo" aria-label="Chad Lickfelt — home">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="26" height="26" rx="5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M8 20V8h2v10h6v2H8Z" fill="currentColor"/>
+        <path d="M17 8h2v5.5l3-5.5h2.2l-3.2 5.6 3.4 6.4H22l-2.8-5.4-2.2 4V20h-2V8Z" fill="currentColor" opacity="0.6"/>
+      </svg>
+      <div>
+        <div class="logo-name">Chad Lickfelt</div>
+        <div class="logo-title">International Relations</div>
       </div>
-      <div class="entry">
-        <h3>Democratic Erosion Observatory</h3>
-        <p class="meta">Ongoing project, est. 2026</p>
-        <p>A quarterly monitoring project tracking democratic erosion across seven countries using five indicators scored on structured 0&ndash;4 rubrics. The framework covers areas such as electoral integrity, institutional independence, and information environment, with each score supported by written evidence justifications. Methodology notes available on request.</p>
+    </a>
+    <div class="header-right">
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">Research &amp; Writing</p>
+      <h1 class="hero-heading" id="hero-heading">Chad<br>Lickfelt</h1>
+      <p class="hero-lede">International Relations student at Florida International University, writing on humanitarian policy, disability-inclusive humanitarian action, Sudanese and African politics, and democratic erosion.</p>
+      <div class="hero-cta-row">
+        <a href="#research" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          View Research
+        </a>
+        <a href="https://chadlickfelt.substack.com" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+          Read on Substack
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+      <div class="hero-meta-block">
+        <div class="hero-accent-line" aria-hidden="true"></div>
+        <div class="hero-tags" aria-label="Research areas">
+          <span class="tag">Humanitarian Policy</span>
+          <span class="tag">Sudan &amp; Africa</span>
+          <span class="tag">Disability Inclusion</span>
+          <span class="tag">Democratic Erosion</span>
+          <span class="tag">FIU — B.A. I.R.</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="writing">
-    <div class="marginal">Writing</div>
-    <div class="body-col">
-      <p>I publish analytical essays on <a href="https://chadlickfelt.substack.com">Substack</a>, where I write about democratic backsliding, humanitarian policy, and the politics of state institutions. Recent pieces have examined the rescission of ICE detainee death reporting requirements, impunity for the crime of aggression, and the dismantling of American foreign assistance infrastructure.</p>
-      <p>The throughline in my writing is a simple conviction: that institutional details most people find boring are where political power actually lives, and that someone should be paying attention to them.</p>
+  <section class="content-section" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-grid">
+        <div class="section-label" aria-hidden="true">
+          <span class="section-label-accent"></span>
+          About
+        </div>
+        <div class="section-body fade-in">
+          <h2 class="section-heading" id="about-heading">Where I work and why it matters</h2>
+          <p class="body-text">I am an undergraduate studying International Relations at Florida International University. My work sits at the intersection of humanitarian policy, political analysis, and disability inclusion: how states fail their people, how informal systems fill the gaps, how the institutions meant to respond actually behave, and what happens to the people with disabilities who are most affected when they fail.</p>
+          <p class="body-text">That last question is not an afterthought. People with disabilities face some of the highest risks in any crisis and are often the last consideration in its response. Making humanitarian action genuinely inclusive is a central thread of my work, reflected in my current certification track in disability-inclusive disaster risk reduction alongside core humanitarian standards.</p>
+          <div class="pull-quote">
+            <blockquote>Institutional details most people find boring are where political power actually lives &mdash; and someone should be paying attention to them.</blockquote>
+          </div>
+          <p class="body-text">I am also focused on Sudan, where informal economic networks sustained communities through a decade of crisis, and on democratic erosion, which I track through a structured indicator framework of my own design. I aim to work in humanitarian policy with international organizations.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="marginal">Contact</div>
-    <div class="body-col">
-      <p>The best way to reach me is by email at <a href="mailto:click002@fiu.edu">click002@fiu.edu</a>. I am genuinely eager to discuss my work on Sudan, or about people with disabilities in crisis situations, and I am always keen to hear from people working in the humanitarian sector.</p>
-      <p>You can also find me on <a href="https://www.linkedin.com/in/chadlickfelt">LinkedIn</a>.</p>
+  <section class="content-section" id="research" aria-labelledby="research-heading">
+    <div class="container">
+      <div class="section-grid">
+        <div class="section-label" aria-hidden="true">
+          <span class="section-label-accent"></span>
+          Research
+        </div>
+        <div class="section-body fade-in">
+          <h2 class="section-heading" id="research-heading">Independent projects</h2>
+          <div class="research-grid">
+            <article class="research-card">
+              <div class="research-card-top">
+                <h3 class="research-title">Informal Economic Systems in Sudan, 1983&ndash;1993</h3>
+                <span class="research-status">Completed</span>
+              </div>
+              <p class="research-meta">Independent research paper &middot; History &amp; Political Economy</p>
+              <p class="research-body">An examination of how hawala remittance networks, sanduk savings associations, and suq markets functioned as parallel economic infrastructure during a decade of war, famine, and state contraction. The paper argues that these informal systems were not stopgaps but durable institutions, with direct implications for how humanitarian actors should engage local economies in protracted crises.</p>
+              <a href="mailto:click002@fiu.edu?subject=Request: Informal Economic Systems in Sudan paper" class="research-request" aria-label="Request full text of Sudan paper by email">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Request full text
+              </a>
+            </article>
+            <article class="research-card">
+              <div class="research-card-top">
+                <h3 class="research-title">Democratic Erosion Observatory</h3>
+                <span class="research-status" style="background:var(--color-gold-light);color:var(--color-gold);">Ongoing</span>
+              </div>
+              <p class="research-meta">Quarterly monitoring project &middot; Est. 2026</p>
+              <p class="research-body">A quarterly monitoring project tracking democratic erosion across seven countries using five indicators scored on structured 0&ndash;4 rubrics. The framework covers electoral integrity, institutional independence, and information environment, with each score supported by written evidence justifications. Methodology notes available on request.</p>
+              <a href="mailto:click002@fiu.edu?subject=Request: Democratic Erosion Observatory methodology" class="research-request" aria-label="Request methodology notes for Democratic Erosion Observatory">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Request methodology notes
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    &copy; 2026 Chad Lickfelt &middot; Last updated June 2026
-  </footer>
+  <section class="content-section" id="writing" aria-labelledby="writing-heading">
+    <div class="container">
+      <div class="section-grid">
+        <div class="section-label" aria-hidden="true">
+          <span class="section-label-accent"></span>
+          Writing
+        </div>
+        <div class="section-body fade-in">
+          <h2 class="section-heading" id="writing-heading">Analytical essays &amp; commentary</h2>
+          <a href="https://chadlickfelt.substack.com" target="_blank" rel="noopener noreferrer" class="writing-substack-card">
+            <div class="substack-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16v3H4z"/><path d="M4 10h16v10l-8-4.5L4 20V10z"/></svg>
+            </div>
+            <div class="substack-content">
+              <p class="substack-label">Published on Substack</p>
+              <p class="substack-title">chadlickfelt.substack.com</p>
+              <p class="substack-desc">Analytical essays on democratic backsliding, humanitarian policy, and the politics of state institutions.</p>
+            </div>
+            <svg class="contact-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p class="body-text">I publish analytical essays on Substack, where recent pieces have examined the rescission of ICE detainee death reporting requirements, impunity for the crime of aggression, and the dismantling of American foreign assistance infrastructure.</p>
+          <p class="body-text" style="margin-top:var(--space-4)">The throughline in my writing is a simple conviction: that institutional details most people find boring are where political power actually lives, and that someone should be paying attention to them.</p>
+          <div class="topics-row" role="list" aria-label="Recent topics covered">
+            <span class="topic-pill" role="listitem">ICE Detainee Oversight</span>
+            <span class="topic-pill" role="listitem">Crime of Aggression</span>
+            <span class="topic-pill" role="listitem">Foreign Aid Dismantling</span>
+            <span class="topic-pill" role="listitem">Democratic Backsliding</span>
+            <span class="topic-pill" role="listitem">Humanitarian Policy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section class="content-section" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-grid">
+        <div class="section-label" aria-hidden="true">
+          <span class="section-label-accent"></span>
+          Contact
+        </div>
+        <div class="section-body fade-in">
+          <h2 class="section-heading" id="contact-heading">Get in touch</h2>
+          <p class="body-text" style="margin-bottom:var(--space-6)">The best way to reach me is by email. I am genuinely eager to discuss my work on Sudan, disability inclusion in crisis situations, or anything in the humanitarian sector.</p>
+          <div class="contact-links">
+            <a href="mailto:click002@fiu.edu" class="contact-link-row" aria-label="Email Chad at click002@fiu.edu">
+              <div class="contact-link-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">Email</div>
+                <div class="contact-link-value">click002@fiu.edu</div>
+              </div>
+              <svg class="contact-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/chadlickfelt" target="_blank" rel="noopener noreferrer" class="contact-link-row" aria-label="Connect with Chad on LinkedIn">
+              <div class="contact-link-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">LinkedIn</div>
+                <div class="contact-link-value">linkedin.com/in/chadlickfelt</div>
+              </div>
+              <svg class="contact-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://chadlickfelt.substack.com" target="_blank" rel="noopener noreferrer" class="contact-link-row" aria-label="Read Chad on Substack">
+              <div class="contact-link-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v3H4z"/><path d="M4 10h16v10l-8-4.5L4 20V10z"/></svg>
+              </div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">Substack</div>
+                <div class="contact-link-value">chadlickfelt.substack.com</div>
+              </div>
+              <svg class="contact-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">&copy; 2026 Chad Lickfelt &middot; Last updated June 2026</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#writing">Writing</a>
+        <a href="mailto:click002@fiu.edu">Email</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const t = document.querySelector('[data-theme-toggle]');
+  const r = document.documentElement;
+  let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  const sunIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const moonIcon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  function updateToggle() {
+    if (!t) return;
+    t.innerHTML = d === 'dark' ? sunIcon : moonIcon;
+    t.setAttribute('aria-label', 'Switch to ' + (d === 'dark' ? 'light' : 'dark') + ' mode');
+  }
+  updateToggle();
+  if (t) {
+    t.addEventListener('click', function() {
+      d = d === 'dark' ? 'light' : 'dark';
+      r.setAttribute('data-theme', d);
+      updateToggle();
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
