@@ -448,6 +448,27 @@ button { cursor: pointer; background: none; border: none; }
 @media (max-width: 768px) {
   .hero-meta-block { margin-top: var(--space-8); }
 }
+
+/* ===== ADDED SEPT 2026: artifact links, score table, writing list ===== */
+.research-actions { display:flex; flex-wrap:wrap; gap:var(--space-4); align-items:center; margin-top:var(--space-4); }
+.research-actions .research-request { margin-top:0; }
+.score-table-wrap { margin-top:var(--space-2); overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.score-table { width:100%; border-collapse:collapse; font-size:var(--text-xs); }
+.score-caption { margin-top:var(--space-5); text-align:left; font-size:var(--text-xs); font-weight:500; letter-spacing:0.04em; text-transform:uppercase; color:var(--color-text-muted); padding-bottom:var(--space-2); }
+.score-table th { font-weight:500; text-align:center; color:var(--color-text-muted); padding:var(--space-2) var(--space-2); border-bottom:1px solid var(--color-border); font-size:0.7rem; letter-spacing:0.04em; text-transform:uppercase; }
+.score-table th:first-child, .score-table td:first-child { text-align:left; white-space:nowrap; }
+.score-table th:nth-child(2) { color:var(--color-primary); }
+.score-table td { text-align:center; padding:var(--space-2); border-bottom:1px solid var(--color-divider); color:var(--color-text); }
+.score-table td.composite { font-weight:600; color:var(--color-primary); }
+.score-table td.trend { text-align:left; color:var(--color-text-muted); white-space:nowrap; }
+.score-note { font-size:var(--text-xs); color:var(--color-text-muted); margin-top:var(--space-3); line-height:1.6; }
+.writing-list { list-style:none; display:flex; flex-direction:column; margin:var(--space-6) 0; border-top:1px solid var(--color-divider); }
+.writing-item { border-bottom:1px solid var(--color-divider); }
+.writing-item a { display:block; padding:var(--space-5) 0; text-decoration:none; color:inherit; transition:transform 180ms var(--ease-out); }
+.writing-item a:hover .writing-item-title { color:var(--color-primary); text-decoration:underline; text-underline-offset:4px; }
+.writing-item-date { font-size:var(--text-xs); letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text-faint); margin-bottom:var(--space-1); }
+.writing-item-title { font-family:var(--font-display); font-size:var(--text-lg); font-weight:500; line-height:1.25; color:var(--color-text); margin-bottom:var(--space-2); transition:color 180ms var(--ease-out); }
+.writing-item-hook { font-size:var(--text-sm); color:var(--color-text-muted); line-height:1.6; }
 </style>
 </head>
 <body>
@@ -473,6 +494,7 @@ button { cursor: pointer; background: none; border: none; }
           <li><a href="#research">Research</a></li>
           <li><a href="#writing">Writing</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="Chad_Lickfelt_CV.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
         </ul>
       </nav>
       <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
@@ -526,7 +548,7 @@ button { cursor: pointer; background: none; border: none; }
           <p class="body-text">I am an undergraduate studying International Relations at Florida International University. My work sits at the intersection of humanitarian policy, political analysis, and disability inclusion: how states fail their people, how informal systems fill the gaps, how the institutions meant to respond actually behave, and what happens to the people with disabilities who are most affected when they fail.</p>
           <p class="body-text">That last question is not an afterthought. People with disabilities face some of the highest risks in any crisis and are often the last consideration in its response. Making humanitarian action genuinely inclusive is a central thread of my work, reflected in my current certification track in disability-inclusive disaster risk reduction alongside core humanitarian standards.</p>
           <div class="pull-quote">
-            <blockquote>Institutional details most people find boring are where political power actually lives &mdash; and someone should be paying attention to them.</blockquote>
+            <blockquote>Institutional details most people find boring are where political power actually lives, and someone should be paying attention to them.</blockquote>
           </div>
           <p class="body-text">I am also focused on Sudan, where informal economic networks sustained communities through a decade of crisis, and on democratic erosion, which I track through a structured indicator framework of my own design. I aim to work in humanitarian policy with international organizations.</p>
         </div>
@@ -546,14 +568,14 @@ button { cursor: pointer; background: none; border: none; }
           <div class="research-grid">
             <article class="research-card">
               <div class="research-card-top">
-                <h3 class="research-title">Informal Economic Systems in Sudan, 1983&ndash;1993</h3>
+                <h3 class="research-title">Parallel Economies: The Resilience of Sudan&rsquo;s Informal Economic Systems During Humanitarian Intervention, 1983&ndash;1993</h3>
                 <span class="research-status">Completed</span>
               </div>
-              <p class="research-meta">Independent research paper &middot; History &amp; Political Economy</p>
+              <p class="research-meta">Independent research paper &middot; Fall 2025 &middot; History &amp; political economy</p>
               <p class="research-body">An examination of how hawala remittance networks, sanduk savings associations, and suq markets functioned as parallel economic infrastructure during a decade of war, famine, and state contraction. The paper argues that these informal systems were not stopgaps but durable institutions, with direct implications for how humanitarian actors should engage local economies in protracted crises.</p>
-              <a href="mailto:click002@fiu.edu?subject=Request: Informal Economic Systems in Sudan paper" class="research-request" aria-label="Request full text of Sudan paper by email">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Request full text
+              <a href="Lickfelt_Parallel_Economies_Sudan_1983-1993.pdf" target="_blank" rel="noopener noreferrer" class="research-request" aria-label="Read the full Sudan paper as a PDF">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                Read the full paper (PDF)
               </a>
             </article>
             <article class="research-card">
@@ -561,12 +583,32 @@ button { cursor: pointer; background: none; border: none; }
                 <h3 class="research-title">Democratic Erosion Observatory</h3>
                 <span class="research-status" style="background:var(--color-gold-light);color:var(--color-gold);">Ongoing</span>
               </div>
-              <p class="research-meta">Quarterly monitoring project &middot; Est. 2026</p>
-              <p class="research-body">A quarterly monitoring project tracking democratic erosion across seven countries using five indicators scored on structured 0&ndash;4 rubrics. The framework covers electoral integrity, institutional independence, and information environment, with each score supported by written evidence justifications. Methodology notes available on request.</p>
-              <a href="mailto:click002@fiu.edu?subject=Request: Democratic Erosion Observatory methodology" class="research-request" aria-label="Request methodology notes for Democratic Erosion Observatory">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Request methodology notes
-              </a>
+              <p class="research-meta">Quarterly monitoring index &middot; Est. 2026 &middot; Q3 2026 scoring in progress</p>
+              <p class="research-body">A source-backed longitudinal index scoring democratic erosion each quarter across an eight-country comparative frame, using six indicators on a 0&ndash;4 rubric: electoral integrity, judicial independence, executive constraint, civil society space, press and media freedom, and the chilling effect of self-censorship. Every score is tied to a written rationale, a rubric cell, and a source library, with de-confliction, quiescence, and saturation rules to keep scores comparable across countries and cycles.</p>
+              <p class="score-caption">Q2 2026 &middot; latest complete cycle &middot; higher means more erosion</p>
+              <div class="score-table-wrap">
+                <table class="score-table">
+                                    <thead><tr><th>Country</th><th>Composite</th><th abbr="Electoral integrity">Elect.</th><th abbr="Judicial independence">Judic.</th><th abbr="Executive constraint">Exec.</th><th abbr="Civil society space">Civil</th><th abbr="Press and media freedom">Press</th><th abbr="Chilling effect and self-censorship">Chill.</th></tr></thead>
+                  <tbody>
+                    <tr><td>Poland</td><td class="composite">1.17</td><td>1</td><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+                    <tr><td>United States</td><td class="composite">2.33</td><td>2</td><td>2</td><td>2</td><td>2</td><td>3</td><td>3</td></tr>
+                    <tr><td>Hungary</td><td class="composite">2.33</td><td>2</td><td>3</td><td>2</td><td>3</td><td>3</td><td>1</td></tr>
+                    <tr><td>Turkey</td><td class="composite">3.00</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+                    <tr><td>Russia</td><td class="composite">4.00</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td><td>4</td></tr>
+                  </tbody>
+                </table>
+                <p class="score-note">Columns: electoral integrity, judicial independence, executive constraint, civil society space, press and media freedom, chilling effect. Composite is the unweighted mean of the six. Russia anchors the top of the scale as a closed-autocracy ceiling case. India, Serbia, and Slovakia are in the frame but not yet scored.</p>
+              </div>
+              <div class="research-actions">
+                <a href="Democratic_Erosion_Observatory_Methodology.pdf" target="_blank" rel="noopener noreferrer" class="research-request" aria-label="Read the Observatory methodology as a PDF">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+                  Methodology and current scores (PDF)
+                </a>
+                <a href="https://chadlickfelt.substack.com/p/233-is-a-choice" target="_blank" rel="noopener noreferrer" class="research-request" aria-label="Read the Q2 2026 analysis on Substack">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read the Q2 2026 analysis
+                </a>
+              </div>
             </article>
           </div>
         </div>
@@ -594,14 +636,36 @@ button { cursor: pointer; background: none; border: none; }
             </div>
             <svg class="contact-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <p class="body-text">I publish analytical essays on Substack, where recent pieces have examined the rescission of ICE detainee death reporting requirements, impunity for the crime of aggression, and the dismantling of American foreign assistance infrastructure.</p>
-          <p class="body-text" style="margin-top:var(--space-4)">The throughline in my writing is a simple conviction: that institutional details most people find boring are where political power actually lives, and that someone should be paying attention to them.</p>
-          <div class="topics-row" role="list" aria-label="Recent topics covered">
-            <span class="topic-pill" role="listitem">ICE Detainee Oversight</span>
+          <p class="body-text">I publish analytical essays on Substack. The throughline is a simple conviction: that institutional details most people find boring are where political power actually lives, and that someone should be paying attention to them. Three pieces to start with:</p>
+          <ul class="writing-list" role="list">
+            <li class="writing-item">
+              <a href="https://chadlickfelt.substack.com/p/233-is-a-choice" target="_blank" rel="noopener noreferrer">
+                <div class="writing-item-date">June 2026</div>
+                <div class="writing-item-title">Hungary Is Climbing Out. America Is Sliding In.</div>
+                <div class="writing-item-hook">Two countries land on the same Observatory composite score, 2.33, from opposite directions: one recovering after sixteen years of backsliding, the other eroding as the damage moves from civic space into the press.</div>
+              </a>
+            </li>
+            <li class="writing-item">
+              <a href="https://chadlickfelt.substack.com/p/the-supreme-crime" target="_blank" rel="noopener noreferrer">
+                <div class="writing-item-date">May 2026</div>
+                <div class="writing-item-title">The Supreme Crime</div>
+                <div class="writing-item-hook">Nuremberg called aggressive war the supreme international crime. Why the war in Iran will go unpunished anyway, and why the institutional architecture was built to make that outcome look like something else.</div>
+              </a>
+            </li>
+            <li class="writing-item">
+              <a href="https://chadlickfelt.substack.com/p/the-canaries-are-going-quiet" target="_blank" rel="noopener noreferrer">
+                <div class="writing-item-date">May 2026</div>
+                <div class="writing-item-title">The Canaries Are Going Quiet</div>
+                <div class="writing-item-hook">From Chaplin to Zelensky to late-night television: comedians see the danger before the diplomats will say it, which is why what happens to them is an early warning worth reading.</div>
+              </a>
+            </li>
+          </ul>
+          <div class="topics-row" role="list" aria-label="Topics covered">
+            <span class="topic-pill" role="listitem">Democratic Erosion</span>
             <span class="topic-pill" role="listitem">Crime of Aggression</span>
-            <span class="topic-pill" role="listitem">Foreign Aid Dismantling</span>
-            <span class="topic-pill" role="listitem">Democratic Backsliding</span>
+            <span class="topic-pill" role="listitem">Press Freedom</span>
             <span class="topic-pill" role="listitem">Humanitarian Policy</span>
+            <span class="topic-pill" role="listitem">State Institutions</span>
           </div>
         </div>
       </div>
@@ -639,6 +703,16 @@ button { cursor: pointer; background: none; border: none; }
               </div>
               <svg class="contact-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            <a href="Chad_Lickfelt_CV.pdf" target="_blank" rel="noopener noreferrer" class="contact-link-row" aria-label="Download Chad's CV as a PDF">
+              <div class="contact-link-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">CV</div>
+                <div class="contact-link-value">Chad_Lickfelt_CV.pdf</div>
+              </div>
+              <svg class="contact-link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
             <a href="https://chadlickfelt.substack.com" target="_blank" rel="noopener noreferrer" class="contact-link-row" aria-label="Read Chad on Substack">
               <div class="contact-link-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v3H4z"/><path d="M4 10h16v10l-8-4.5L4 20V10z"/></svg>
@@ -660,11 +734,12 @@ button { cursor: pointer; background: none; border: none; }
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 Chad Lickfelt &middot; Last updated June 2026</p>
+      <p class="footer-copy">&copy; 2026 Chad Lickfelt &middot; Last updated September 2026</p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#writing">Writing</a>
+        <a href="Chad_Lickfelt_CV.pdf">CV</a>
         <a href="mailto:click002@fiu.edu">Email</a>
       </nav>
     </div>
